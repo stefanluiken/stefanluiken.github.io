@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hart-Inspired Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #333;
+      background-color: #fff;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    header {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f8f8f8;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: #333;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 24px;
+      height: 18px;
+      justify-content: space-between;
+      margin-right: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #333;
+      border-radius: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Fullscreen gray hero background */
+    .hero-wrapper {
+      background-color: #eaeaea;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 8rem 0;
+      font-family: 'Playfair Display', serif;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+      color: #333;
+      padding: 0;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .lookbook-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .lookbook-content img {
+      flex: 1 1 300px;
+      max-width: 30%; /* smaller image */
+      height: auto;
+      border-radius: 8px;
+      order: 2; /* image on right */
+    }
+
+    .lookbook-text {
+      flex: 1 1 300px;
+      order: 1; /* text on left */
+      font-family: 'Playfair Display', serif; /* elegant font */
+    }
+
+    .lookbook-text h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .lookbook-text p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    #insights, #contact {
+      font-family: 'Playfair Display', serif; /* elegant font */
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #f8f8f8;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 1rem;
+        flex-wrap: wrap; /* allow wrapping */
+        justify-content: space-between;
+      }
+
+    .lookbook-content img {
+      max-width: 50% !important;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+
+      .logo {
+        order: 2;
+        font-size: 1.2rem;
+        flex-grow: 1;
+        text-align: right;
+      }
+
+      .hamburger {
+        display: flex;
+        order: 1;
+        margin-left: 1rem;
+        flex-grow: 0;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        margin-top: 0.5rem;
+        order: 3;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav a {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        display: block;
+        width: 100%;
+      }
+
+      .hero-wrapper {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+      }
+
+      .hero {
+        padding: 4rem 0;
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+        padding: 0;
+      }
+
+      .lookbook-content {
+        flex-direction: column;
+      }
+
+      .lookbook-content img,
+      .lookbook-text {
+        flex: 1 1 100%;
+        order: unset;
+        max-width: 100%;
+      }
+
+      section {
+        padding: 2rem 0;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hamburger" id="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <a href="#home" class="logo">Stefan Luiken</a>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="hero-wrapper">
+      <section id="home" class="hero">
+        <h1>My name is Stefan Luiken. I am a Software Engineer who loves building products and has a passion for payments.</h1>
+      </section>
+    </div>
+
+    <section id="profile">
+      <div class="lookbook-content">
+        <img src="stefan_luiken.png" alt="Photo of Stefan" />
+        <div class="lookbook-text">
+          <h2>Profile</h2>
+          <p>Hi, I'm Stefan. I love exploring new cultures and am currently based in Chicago. Previously, I have lived in China, Indonesia, and the Netherlands.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights">
+      <h2>Insights</h2>
+      <p>
+        This website was built with the help of OpenAI's ChatGPT, a powerful AI language model. It demonstrates how AI can assist in web design and development. The model used is GPT-4o-mini.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        For inquiries, you can find me on <a href="https://www.linkedin.com/in/stefan-luiken/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Stefan Luiken</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
